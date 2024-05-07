@@ -37,7 +37,8 @@ public class mainPractice {
 
                         switch (op2) {
                             case 1:
-                                cCita.proxCita(pac.getEdad(), pac.getUltimaCita());
+                                System.out.println("Ultima cita: "+ pac.getUltimaCita());
+                                System.out.println("Su cita quedo agendada para el dia: " + cCita.proxCita(pac.getEdad(), pac.getUltimaCita()));
                                 break;
                             default:
                                 break;
