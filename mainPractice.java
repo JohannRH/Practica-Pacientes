@@ -8,10 +8,12 @@ public class mainPractice {
     static LinkedList<paciente> pacientes = new LinkedList<>();
     static LinkedList<doctor> doctors = new LinkedList<>();
     static calcularCita cCita = new calcularCita();
+    static importar importDoct = new importar();
+    static exportar exportDoct = new exportar();
 
     public static void main(String[] args) throws IOException{
         int op = 0;
-
+        doctors = importDoct.importarDoctor("Doctores.txt");
         do{
             System.out.println("BIENVENIDO\n");
             System.out.println("1. Ingresar Paciente\n0. Salir");
@@ -30,21 +32,31 @@ public class mainPractice {
                     pacientes.add(pac);
 
                     int op2 = 0;
-                    do{
-                        System.out.println("Hola Señor(@) " + pac.getNombre());
-                        System.out.println("\n1.Agendar Nueva Cita \n0.Salir");
-                        op2 = Integer.parseInt(cp.readLine());
+                    System.out.println("\nHola Señor(@) " + pac.getNombre());
+                    System.out.println("\n1.Agendar Nueva Cita");
+                    op2 = Integer.parseInt(cp.readLine());
 
-                        switch (op2) {
-                            case 1:
-                                System.out.println("Ultima cita: "+ pac.getUltimaCita());
-                                System.out.println("Su cita quedo agendada para el dia: " + cCita.proxCita(pac.getEdad(), pac.getUltimaCita()));
-                                break;
-                            default:
-                                break;
-                        }
-                    }while(op2 != 0);
+                    switch (op2) {
+                        case 1:
+                            boolean doctEn = false;
+                            for (doctor doct : doctors) {
+                                if (doct.disponible == true) {
+                                    doctEn = true;
+                                    System.out.println("Ultima cita: "+ pac.getUltimaCita());
+                                    System.out.println("Su cita quedo agendada para el dia: " + cCita.proxCita(pac.getEdad(), pac.getUltimaCita()));
+                                    System.out.println("El doctor que lo atendera es: "+doct.getNombre()+"\n");
+                                    doct.disponible = false;
+                                    break;
+                                }
+                            }
+                            if (!doctEn)
+                                System.out.println("No hay un doctor disponible para su cita\n");
+                            break;
+                        default:
+                            break;
+                    }
 
+                    exportDoct.exportarDoct(doctors);
                     break;
                 default:
                     break;
