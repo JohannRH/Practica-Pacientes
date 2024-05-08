@@ -1,5 +1,5 @@
 Nombre:Juan
-Disponible:si
+Disponible:no
 
 Nombre:Camilo
 Disponible:si

@@ -9,7 +9,7 @@ public class mainPractice {
     static LinkedList<doctor> doctors = new LinkedList<>();
     static calcularCita cCita = new calcularCita();
     static importar importDoct = new importar();
-    static exportar exportDoct = new exportar();
+    static exportar export = new exportar();
 
     public static void main(String[] args) throws IOException{
         int op = 0;
@@ -56,7 +56,8 @@ public class mainPractice {
                             break;
                     }
 
-                    exportDoct.exportarDoct(doctors);
+                    export.exportarDoct(doctors);
+                    export.exportarPac(pacientes);
                     break;
                 default:
                     break;
