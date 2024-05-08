@@ -1,0 +1,5 @@
+Nombre:Johann
+Edad:18
+Tipo de Sangre:A+
+Ultima Cita:16/3/2023
+
