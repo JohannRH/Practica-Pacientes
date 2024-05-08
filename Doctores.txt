@@ -1,0 +1,12 @@
+Nombre:Juan
+Disponible:si
+
+Nombre:Camilo
+Disponible:si
+
+Nombre:Alberto
+Disponible:si
+
+Nombre:Mateo
+Disponible:si
+
